@@ -21,4 +21,17 @@ public class UserDaoImpl implements UserDao {
     public void addUser(User user) {
         users.put(user.getId(), user);
     }
+
+    @Override
+    public User findUserByLoginOrEmail(String username) {
+        return users.values().stream()
+                .filter(user -> user.getEmail().equals(username) || user.getUsername().equals(username))
+                .findFirst()
+                .orElse(null);
+    }
+
+    @Override
+    public User findUserByLogin(String name) {
+        return findUserByLoginOrEmail(name);
+    }
 }

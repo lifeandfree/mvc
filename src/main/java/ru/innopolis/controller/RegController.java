@@ -46,6 +46,7 @@ public class RegController {
         }
 
         registrationService.regUser(userDto);
+        modelAndView.setViewName("redirect:login");
         return modelAndView;
     }
 
