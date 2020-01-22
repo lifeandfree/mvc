@@ -9,8 +9,12 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import ru.innopolis.db.model.User;
 import ru.innopolis.service.RegistrationService;
@@ -34,8 +38,10 @@ public class RegController {
         return modelAndView;
     }
 
+    //@PathVariable String path, @RequestParam(name = "param") String param,
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView userRegistration(@ModelAttribute(name = "userForm") @Validated UserDto userDto,
+    //@PostMapping
+    public ModelAndView userRegistration(@ModelAttribute(name = "userForm") @Validated @RequestBody UserDto userDto,
                                          BindingResult result, HttpServletRequest httpServletRequest) {
         ModelAndView modelAndView = new ModelAndView();
 

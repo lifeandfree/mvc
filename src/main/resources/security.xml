@@ -11,6 +11,7 @@
     <http auto-config="true" request-matcher="ant">
         <!--security zone-->
         <intercept-url pattern="/first" access="hasAnyRole('ROLE_USER')"/>
+        <intercept-url pattern="/two" access="hasAnyRole('ROLE_USER')"/>
         <intercept-url pattern="/hello" access="isAuthenticated()"/>
 
         <!--public zone-->
